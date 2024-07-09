@@ -1,4 +1,4 @@
-# サーバシステムテスト対策.md
+# サーバシステムテスト対策
 
 ### シラバス到達目標 :
 
@@ -73,7 +73,8 @@
   - 2. Apache は必要に応じてスクリプトを実行。
   - 3. スクリプトはデータベースを読み込んだりして動的ページを作成。
   - 4. Apache 経由で動的ページを返却。(HTTP 200 OK)
-       ![LAMP(7) : LAMP全体の動作](./pics/image1.png)
+
+![LAMP(7) : LAMP全体の動作](./pics/image1.png)
 
 ### LAMP HTTP の階層
 
@@ -300,6 +301,10 @@ $firstName = "John";
 
 // lastName 変数に "Doe" を代入
 $lastName = "Doe";
+
+
+
+## サーバシステムテスト
 
 // fullName 変数に firstName と lastName を空白区切りで連結した文字列を代入
 $fullName = $firstName . " " . $lastName;
@@ -1849,11 +1854,684 @@ JSP とサーブレットは、動的なウェブアプリケーションを構�
 
 ---
 
-## 注意事項
-
-- 各設問に対して、具体的なコード例や図を用いて説明することが求められる場合がある。
-- 制限時間は 100 分である。
+以下に、提供されたテスト問題の模範解答を示す。
 
 ---
 
-このテストは、学習した技術を基に実践的な Web 開発を行う能力を評価することを目的としている。システム開発の進め方を理解し、システムエンジニアとしての基本能力を身につけることが目標である。
+## サーバシステムテスト模範解答
+
+### 第 01 回
+
+#### 講義概要
+
+1. **Web アプリケーションの概念**
+
+   - Web アプリケーションとは、インターネットを介してブラウザ上で動作するアプリケーションソフトウェアのこと。クライアント側（ユーザーのブラウザ）とサーバ側（アプリケーションサーバ）で動作し、データの送受信や処理を行う。
+
+2. **システム開発の工程**
+   - 要件定義
+   - 設計
+   - 実装
+   - テスト
+   - デプロイ
+   - 保守運用
+
+---
+
+### 第 02 回
+
+#### Xrdp と Apache
+
+1. **xrdp とは**
+
+   - xrdp は、Microsoft RDP プロトコルのフリーかつオープンソースのサーバで、主に Linux で利用可能。RDP によるグラフィカルログインを提供する。
+
+2. **Apache とは**
+   - Apache は、オープンソースの Web サーバソフトウェアで、HTTP サーバとして広く利用されており、高いカスタマイズ性と拡張性を持つ。
+
+#### Linux 基本コマンドと Bash Script
+
+1. **基本コマンド**
+
+   - `ls`: ディレクトリの内容を一覧表示
+   - `cd`: ディレクトリの移動
+   - `cp`: ファイルやディレクトリをコピー
+   - `mv`: ファイルやディレクトリを移動または名前を変更
+   - `rm`: ファイルやディレクトリを削除
+   - `chmod`: ファイルの権限を変更
+   - `chown`: ファイルの所有者を変更
+   - `ps`: 実行中のプロセスを表示
+   - `grep`: 文字列検索
+   - `find`: ファイル検索
+
+2. **Bash Script**
+   - 以下の Bash Script は、「Hello, World!」というメッセージを表示する。
+     ```bash
+     #!/bin/bash
+     echo "Hello, World!"
+     ```
+
+#### Unicode と UTF-8 の違い
+
+1. **Unicode**
+
+   - Unicode は、世界中の文字を一意に表すための標準文字コード。各文字に対して一意の番号（コードポイント）を割り当てる。
+
+2. **UTF-8**
+   - UTF-8 は、Unicode をエンコードするための可変長文字エンコーディング方式。1〜4 バイトで 1 つの文字を表す。
+
+---
+
+### 第 03 回
+
+#### LAMP
+
+1. **LAMP とは何か**
+
+   - LAMP は、Linux + Apache + MySQL + P 言語（php, perl, python 等）で構成されたオープンソースソフトウェアの組み合わせで、Web サービスの構築環境を指す。
+
+2. **LAMP 全体の動作**
+   - 1. HTTP リクエストを Linux が Apache に渡す。(HTTP GET)
+   - 2. Apache は必要に応じてスクリプトを実行。
+   - 3. スクリプトはデータベースを読み込んだりして動的ページを作成。
+   - 4. Apache 経由で動的ページを返却。(HTTP 200 OK)
+
+#### HTTP と HTTPS の階層
+
+1. **階層構造**
+
+   - HTTP は TCP 上のプロトコル
+   - HTTPS は HTTP と TCP の間にセキュア通信の SSL が入る
+
+   | 層                 | HTTP         | HTTPS        |
+   | ------------------ | ------------ | ------------ |
+   | アプリケーション層 | HTTP         | HTTP         |
+   |                    |              | SSL          |
+   | トランスポート層   | TCP          | TCP          |
+   | IP 層              | IP           | IP           |
+   | ネットワーク層     | ネットワーク | ネットワーク |
+
+#### 通信プロトコル
+
+1. **通信プロトコルの基本**
+   - 通信プロトコルとは、データ通信を行うためのルールセット。
+   - 代表的なプロトコル：HTTP, FTP, SMTP, TCP/IP, UDP
+
+---
+
+### 第 04 回
+
+#### JavaScript
+
+1. **変数**
+
+   - `let`: 再代入は可能だが、再宣言は不可。ブロックスコープ。
+   - `const`: 再代入も再宣言も不可。ブロックスコープ。
+   - `var`: 再代入も再宣言も可能。関数スコープ。
+
+2. **if 文**
+
+   - 以下の if 文は、score が 60 以上の場合「合格」を表示し、そうでない場合は「不合格」を表示する。
+     ```js
+     let score = 75;
+     if (score >= 60) {
+       console.log("合格");
+     } else {
+       console.log("不合格");
+     }
+     ```
+
+3. **関数定義**
+
+   - 以下の関数定義は、name を引数に取り、「Hello, name」というメッセージを返す。
+     ```js
+     function greet(name) {
+       return "Hello, " + name;
+     }
+     let message = greet("Taro");
+     console.log(message); // "Hello, Taro"
+     ```
+
+4. **オブジェクト型の例**
+   - 以下のコードは、name と age のプロパティを持つ person オブジェクトを作成し、name プロパティの値を表示する。
+     ```js
+     let person = {
+       name: "Yamada",
+       age: 30,
+     };
+     console.log(person.name); // "Yamada"
+     ```
+
+#### 静的・動的 Web ページ
+
+1. **静的 Web ページ**
+
+   - 静的 Web ページとは、既に出来上がっている HTML ファイルを送り返す方式。
+
+2. **動的 Web ページ**
+   - 動的 Web ページとは、リクエストの都度、ダイナミックに HTML ファイルを作り出す方式。
+
+#### クライアントサイド技術
+
+1. **クライアントサイド技術**
+   - HTML: ウェブページの構造を記述するマークアップ言語。
+   - CSS: ウェブページのスタイルを指定するスタイルシート言語。
+   - JavaScript: ウェブページの動作を制御するスクリプト言語。
+
+#### 問題
+
+1. **四則演算**
+
+   - 以下の JavaScript コードを実行した結果は次の通り。
+     ```js
+     let a = 10;
+     let b = 20;
+     console.log(a + b); // 30
+     console.log(a - b); // -10
+     console.log(a * b); // 200
+     console.log(a / b); // 0.5
+     ```
+
+2. **`if`, `else`文**
+
+   - `if`文は条件が真の場合に実行されるブロックを指定し、`else`文は条件が偽の場合に実行されるブロックを指定する。
+
+3. **`this`キーワード**
+   - `this`キーワードは、現在のオブジェクトを指す。以下のコードでは、`this.name`は`Person`オブジェクトの`name`プロパティを指す。
+     ```js
+     function Person(name) {
+       this.name = name;
+     }
+     let p = new Person("Yamada");
+     console.log(p.name); // "Yamada"
+     ```
+
+---
+
+### 第 05 回
+
+#### PHP
+
+1. **CGI プログラム**
+
+   - CGI（Common Gateway Interface）プログラムは、Web サーバシステムプログラムを実行させる仕掛けである。Web サーバプログラムからの呼び出しが簡単に行えること、文字列の扱いが容易であることが条件となる。
+
+2. **文字コードの指定**
+
+   - PHP で日本語を生成する際には、以下のヘッダーを含める。
+     ```php
+     header('Content-Type: text/html; charset=UTF-8');
+     ```
+
+3. **スクリプトの作成・実行方法**
+   - 以下の PHP スクリプトは、現在の日付を表示する。
+     ```php
+     <?php
+     echo date("Y/m/d");
+     ?>
+     ```
+   - 実行方法は、`php date.php`をターミナルで実行する。
+
+#### 変数
+
+1. **PHP の組み込み関数**
+   - `floor()`: 少数以下を切り捨てる。
+   - `ceil()`: 少数を切り上げる。
+   - `sqrt()`: 平方根を求
+
+める。
+
+- `array_fill()`: 配列を指定した値で埋める。
+- `isset()`: 変数がセットされているかを調べる。
+- `unset()`: 変数のセットを解除する。
+- `array_keys()`: 配列のキーを返す。
+
+2. **Java との違い**
+   - PHP はクラスがなくても動作し、変数を宣言なしで使用できる。型は推論で決まる。オブジェクトのメソッドやメンバへのアクセスは「->」で行い、文字列の連結は「.」で行う。
+
+#### 連想配列
+
+1. **連想配列とは何か**
+
+   - 連想配列は、キーと値のペアでデータを管理する配列。
+
+2. **連想配列の操作**
+
+   - 以下の連想配列操作の結果は次の通り。
+     ```php
+     $ages = array(
+         "Peter" => 35,
+         "Ben" => 37,
+         "Joe" => 43
+     );
+     echo $ages["Peter"]; // 35
+     ```
+
+3. **連想配列の使用例**
+
+   - フォームデータの処理に連想配列を使用する方法。
+
+     ```php
+     // 連想配列でフォームデータを処理する
+     $formData = array(
+         "name" => "John Doe",
+         "email" => "john@example.com",
+         "age" => 25
+     );
+
+     echo "Name: " . $formData["name"] . "\n";
+     echo "Email: " . $formData["email"] . "\n";
+     echo "Age: " . $formData["age"] . "\n";
+     ```
+
+---
+
+### 第 06 回
+
+#### HTTP
+
+1. **HTTP の概要**
+
+   - HTTP はアプリケーションレイヤの通信プロトコルで、ウェブブラウザとウェブサーバ間のデータ転送に使用される。ステートレスであり、セッション管理は Cookie などを使用する。主にテキスト形式のデータをやり取りし、通常は暗号化されていない（HTTPS で暗号化可能）。クライアントがサーバに要求する動作（メソッド）が規定されており、通信の結果はステータスコードで示される。
+
+2. **リクエストとレスポンスの構成**
+
+   - **HTTP リクエスト**
+
+     - メソッド、URL、バージョン、ヘッダー、ボディで構成される。
+
+     ```plaintext
+     GET /index.html HTTP/1.1
+     Host: www.example.com
+     User-Agent: Mozilla/5.0
+     Accept: text/html
+     ```
+
+   - **HTTP レスポンス**
+
+     - バージョン、ステータスコード、ステータスメッセージ、ヘッダー、ボディで構成される。
+
+     ```plaintext
+     HTTP/1.1 200 OK
+     Content-Type: text/html
+     Content-Length: 123
+
+     <html>
+     <body>Hello, World!</body>
+     </html>
+     ```
+
+3. **HTTP メソッド**
+
+   - 主な HTTP メソッドの一覧。
+     | メソッド | 説明 |
+     | -------- | ---------------------------- |
+     | GET | リソースの取得 |
+     | POST | データの送信（新規作成） |
+     | PUT | データの更新 |
+     | DELETE | リソースの削除 |
+     | HEAD | ヘッダー情報の取得（ボディなし） |
+     | OPTIONS | 利用可能なメソッドの取得 |
+     | TRACE | リクエストのループバックテスト |
+     | CONNECT | トンネルを確立するためのプロキシ使用 |
+
+4. **URL パラメータ**
+   - 以下の URL パラメータは、name=John, age=30 のデータを含む。
+     ```plaintext
+     http://www.example.com/page?name=John&age=30
+     ```
+
+---
+
+### 第 07 回
+
+#### MySQL
+
+1. **MySQL 概要**
+
+   - MySQL は、オープンソースのリレーショナルデータベース管理システム (RDBMS) であり、ウェブアプリケーションのデータベースとして広く使用される。SQL（Structured Query Language）を使用してデータの操作や管理を行う。
+
+2. **データベース操作**
+
+   - データベースの作成。
+
+     ```sql
+     CREATE DATABASE mydatabase;
+     ```
+
+   - データベースの選択。
+
+     ```sql
+     USE mydatabase;
+     ```
+
+   - データベースの削除。
+     ```sql
+     DROP DATABASE mydatabase;
+     ```
+
+3. **テーブル操作**
+
+   - テーブルの作成。
+
+     ```sql
+     CREATE TABLE users (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         name VARCHAR(100),
+         email VARCHAR(100)
+     );
+     ```
+
+   - テーブルの削除。
+
+     ```sql
+     DROP TABLE users;
+     ```
+
+   - テーブルの表示。
+
+     ```sql
+     SHOW TABLES;
+     ```
+
+   - テーブルの構造表示。
+     ```sql
+     DESCRIBE users;
+     ```
+
+4. **レコード操作**
+
+   - レコードの挿入。
+
+     ```sql
+     INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com');
+     ```
+
+   - レコードの選択。
+
+     ```sql
+     SELECT * FROM users;
+     ```
+
+   - レコードの更新。
+
+     ```sql
+     UPDATE users SET email='newemail@example.com' WHERE id=1;
+     ```
+
+   - レコードの削除。
+     ```sql
+     DELETE FROM users WHERE id=1;
+     ```
+
+5. **PHP からのデータベースアクセス**
+
+   - PHP から MySQL データベースに接続し、データの挿入、選択、更新、削除を行う方法。
+
+     ```php
+     <?php
+     $servername = "localhost";
+     $username = "root";
+     $password = "password";
+     $dbname = "mydatabase";
+
+     // 接続を作成する
+     $conn = new mysqli($servername, $username, $password, $dbname);
+
+     // 接続をチェックする
+     if ($conn->connect_error) {
+         die("Connection failed: " . $conn->connect_error);
+     }
+     echo "Connected successfully";
+
+     // データの挿入
+     $sql = "INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com')";
+     if ($conn->query($sql) === TRUE) {
+         echo "New record created successfully";
+     } else {
+         echo "Error: " . $sql . "<br>" . $conn->error;
+     }
+
+     // データの選択
+     $sql = "SELECT id, name, email FROM users";
+     $result = $conn->query($sql);
+     if ($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+             echo "id: " . $row["id"]. " - Name: " . $row["name"]. " - Email: " . $row["email"]. "<br>";
+         }
+     } else {
+         echo "0 results";
+     }
+
+     // データの更新
+     $sql = "UPDATE users SET email='newemail@example.com' WHERE id=1";
+     if ($conn->query($sql) === TRUE) {
+         echo "Record updated successfully";
+     } else {
+         echo "Error updating record: " . $conn->error;
+     }
+
+     // データの削除
+     $sql = "DELETE FROM users WHERE id=1";
+     if ($conn->query($sql) === TRUE) {
+         echo "Record deleted successfully";
+     } else {
+         echo "Error deleting record: " . $conn->error;
+     }
+
+     // 接続の終了
+     $conn->close();
+     ?>
+     ```
+
+---
+
+### 第 08 回
+
+#### Java サーブレットと JSP
+
+1. **サーブレットとは何か**
+
+   - サーブレットはサーバ上で動作する Java プログラムで、動的 Web アプリケーションを構築するためのサーバサイド技術。
+
+2. **サーブレットコンテナ**
+
+   - サーブレットコンテナは、サーブレットの実行環境を提供するコンポーネントである。
+
+3. **Apache Tomcat**
+
+   - Apache Tomcat は、Apache Software Foundation が開発しているオープンソースのサーブレットコンテナで、コンテナ（Catalina）と HTTP サーバ（Coyote）から構成される。
+
+4. **JSP の基本**
+
+   - JSP は、Java Server Pages の略で、動的 Web アプリケーションを構築するためのサーバサイドの技術。HTML の中に断片的な Java プログラムを埋め込む簡易なサーバサイド処理技術。
+
+5. **ディレクティブ**
+
+   - JSP のディレクティブは、JSP ページの処理方式をコンテナに伝える。代表的なディレクティブには`@page`, `@include`, `@taglib`がある。
+
+6. **スクリプトレット**
+   - JSP のスクリプトレットは、HTML に埋め込む小さなプログラムである。`<% ... %>`の形式で記述し、命令文はセミコロン`;`で終わる。
+
+---
+
+### 第 09 回
+
+#### 宣言部
+
+1. **宣言部**
+
+   - 宣言部は、Java のメソッドや変数を宣言するために使用される。書式は`<%! ... %>`である。
+
+   ```jsp
+   <%!
+       private String greet() {
+           return "Hello, World!";
+       }
+   %>
+   ```
+
+#### 式 (Expression)
+
+2. **式**
+
+   - 式は、Java の値を評価し、その結果を HTML ページに直接出力するために使用される。書式は`<%= ... %>`である。
+
+   ```jsp
+   <html>
+   <body>
+       <h1>現在の日時: <%= new java.util.Date() %></h1>
+   </body>
+   </html>
+   ```
+
+#### アクションタグ
+
+3. **アクションタグ**
+   - アクションタグは、JavaBeans の操作、他のリソースのインクルード、転送などのアクションを実行するために使用される。主なアクションタグには`<jsp:useBean>`, `<jsp:setProperty>`, `<jsp:getProperty>`, `<jsp:include>`, `<jsp:forward>`がある。
+
+#### Cookie
+
+4. **Cookie**
+
+   - Cookie は、ユーザーのブラウザに保存される小さなデータの断片で、ユーザーの状態や設定を保存するために使用される。
+
+   - **Cookie の設定方法**
+
+     ```jsp
+     <%
+         Cookie cookie = new Cookie("username", "JohnDoe");
+         cookie.setMaxAge(60*60*24); // 1日間有効
+         response.addCookie(cookie);
+     %>
+     ```
+
+   - **Cookie の読み取り方法**
+     ```jsp
+     <%
+         Cookie[] cookies = request.getCookies();
+         if (cookies != null) {
+             for (Cookie cookie : cookies) {
+                 if (cookie.getName().equals("username")) {
+                     String username = cookie.getValue();
+                     out.println("Welcome back, " + username);
+                 }
+             }
+         }
+     %>
+     ```
+
+---
+
+### 第 10 回
+
+#### JDBC
+
+1. **JDBC の概要**
+
+   - JDBC は、Java アプリケーションからデータベースに接続して操作を行うための API である。1996 年に Java 1.1 で導入され、現在は多くのデータベースでサポートされている。
+
+2. **主要なクラス**
+
+   - `DriverManager`: データベースへの接続を管理するクラス
+   - `Connection`: データベース接続を表すクラス
+   - `Statement`: SQL クエリを実行するためのクラス
+   - `ResultSet`: SQL クエリの結果を格納するクラス
+
+3. **使用例**
+
+   - JDBC を使用してデータベースに接続し、データを取得する方法。
+
+     ```java
+     import java.sql.Connection;
+     import java.sql.DriverManager;
+     import java.sql.ResultSet;
+     import java.sql.Statement;
+
+     public class JDBCExample {
+         public static void main(String[] args) {
+             String url = "jdbc:mysql://localhost:3306/mydatabase";
+             String user = "root";
+             String password = "password";
+
+             try {
+                 Connection connection = DriverManager.getConnection(url, user, password);
+                 Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+
+                 while (resultSet.next()) {
+                     System.out.println("User ID: " + resultSet.getInt("id"));
+                     System.out.println("Username: " + resultSet.getString("username"));
+                 }
+
+                 resultSet.close();
+                 statement.close();
+                 connection.close();
+             } catch (Exception e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+     ```
+
+---
+
+### 第 11 回
+
+#### サーブレット
+
+1. **サーブレットと JSP**
+
+   - サーブレットはビジネスロジックを処理し、JSP はプレゼンテーションロジックを処理する。両者は連携して使用され、サーブレットが処理した結果を JSP で表示する。
+
+2. **アプリケーションクラス**
+
+   - アプリケーションクラスは、サーブレットのライフサイクル全体で共有されるデータや設定を管理するクラスである。
+
+3. **メソッドハンドラ**
+
+   - メソッドハンドラは、HTTP リクエストのメソッド（GET, POST など）に応じて適切な処理を行うメソッドである。
+
+4. **インスタンス変数**
+
+   - サーブレット内のインスタンス変数は、サーブレットの全インスタンス間で共有されるため、スレッドセーフである必要がある。
+
+5. **JSP 連携**
+
+   - サーブレットと JSP の連携方法。
+     ```java
+     // サーブレット内のコード例
+     request.setAttribute("user", user);
+     RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");
+     dispatcher.forward(request, response);
+     ```
+
+6. **JavaBeans**
+   - JavaBeans は再利用可能なコンポーネントで、プロパティ、メソッド、イベントを持つ。JSP から JavaBeans を利用することで、データの受け渡しや処理が容易になる。
+
+---
+
+### 第 12 回
+
+#### JavaBeans と MVC モデル
+
+1. **JavaBeans のスコープ**
+
+   - JavaBeans のスコープの種類とそれぞれの有効範囲。
+     | スコープ | 説明 | 有効範囲 |
+     | ------------- | -------------------- | ---------------------------- |
+     | `page` | 同一ページ内 | JSP ページ内 |
+     | `request` | 同一リクエスト内 | サーブレットと JSP 間 |
+     | `session` | 同一セッション内 | ユーザーセッション間 |
+     | `application` | アプリケーション全体 | 全てのユーザーとセッション間 |
+
+2. **JavaBeans の受け渡し**
+
+   - サーブレットから JSP へ JavaBeans を受け渡す方法。
+     ```jsp
+     <jsp:useBean id="user" class="com.example.User" scope="request" />
+     <jsp:getProperty name="user" property="username" />
+     ```
+
+3. **MVC モデル**
+   - MVC モデルとは、Model-View-Controller の略で、アプリケーションの構造を整理するためのデザインパターン。Model がデータとビジネスロジックの管理、View がユーザーインターフェースの表示、Controller がリクエストの処理とレスポンスの生成を行う。
